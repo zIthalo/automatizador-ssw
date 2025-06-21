@@ -110,11 +110,6 @@ def sub():
     pyautogui.write(sg + vl + pl)
     pyautogui.click(x=168, y=459)
 
-# def t4():
-#     keyboard.press('ctrl')
-#     keyboard.write('34')
-#     keyboard.release('ctrl')
-# Caixa de diálogo para entrada de comandos
 def abrir_caixa_de_dialogo():
     root = tk.Tk()
     root.withdraw()
@@ -126,8 +121,8 @@ def abrir_caixa_de_dialogo():
         lc()
     elif comando in ["in", "IN", "1"]:
         interior()
-    elif comando in ["log", "LOG", "0"]:
-        log()
+    # elif comando in ["log", "LOG", "0"]:
+    #     log()
     elif comando in ["cm", "CM", "11"]:
         cem()
     elif comando in ["cb", "CB", "3"]:

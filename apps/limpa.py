@@ -24,6 +24,3 @@ def monitorar_clipboard():
 
 # Inicia o monitoramento
 monitorar_clipboard()
-
-# cpf 120.920.974-82
-# cpf 120,920,974 82

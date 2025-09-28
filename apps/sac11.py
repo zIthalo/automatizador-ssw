@@ -6,6 +6,7 @@ import tkinter as tk
 
 def mostrar_comandos():
     comandos = [
+        "Digite //0 para executar a função saudação breve",
         "Digite //1 para executar a função de saudação completa no wpp;\n",
         "Digite //2 para executar a função saudação2;\n",
         "Digite //3 para executar a função solicitar auxilio com uma nf;\n",
@@ -17,7 +18,11 @@ def mostrar_comandos():
         "Digite //9 para executar a função informar estadia;\n",
         "Digite //e para executar a função informar seu e-mail;",
         "Digite //r para executar a função informar que a mercadoria está em rota de entrega hoje;\n",
-        "Digite //sg para executar a função segue e-mail enviado;\n"
+        "Digite //sg para executar a função segue e-mail enviado;\n",
+        "Digite //ag para executar a função informar agendamento",
+        "Digite //ar para executar a função informar agendamento Risso",
+        "Digite //ca para executar a função cobrar agendamento para amanhã",
+        "Digite //p para executar a função teria o PDF ou n° da NF?"
     ]
 
     janela = tk.Tk()
@@ -244,6 +249,9 @@ def pdfOuNumNF():
     pyperclip.copy(respostasWpp[5])
     pyautogui.hotkey("ctrl", "v")
 
+
+#Funções FIM ***********************************************************
+
 comando_digitado = ""
 
 def verificar_comando(e):
@@ -357,8 +365,6 @@ def verificar_comando(e):
         elif len(comando_digitado) > 10:
             comando_digitado = ""
 
-
-#Funções FIM ***********************************************************
 
 
 keyboard.on_press(verificar_comando)

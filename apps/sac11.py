@@ -4,6 +4,7 @@ import keyboard
 import pyperclip
 import tkinter as tk
 
+
 def mostrar_comandos():
     comandos = [
         "Digite //0 para executar a função saudação breve",
@@ -97,9 +98,9 @@ diversos = [
 # Corrigindo a lógica de hora
 hora_atual = datetime.now().hour
 
-if 0 <= hora_atual < 12:
+if hora_atual < 12:
     saudacao = "Olá! Bom dia."
-elif 12 <= hora_atual < 18:
+elif hora_atual < 18:
     saudacao = "Olá! Boa tarde."
 else:
     saudacao = "Olá! Boa noite."

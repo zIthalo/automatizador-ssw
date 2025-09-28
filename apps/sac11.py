@@ -36,17 +36,17 @@ def mostrar_comandos():
     janela.mainloop()
 
 
-#Msg Endereço não localizado
+#Msg Endereço não localizado, reentrega e mudou-se
 
 respostas = [
             #0 Endereço não localizado
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\nGentileza confirmar o endereço e caso o mesmo estiver divergente gentileza: \n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
+            "Favor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
             #1 Reentrega    
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisamos da autorização para custo de reentrega (50% do valor do CT-e origem) e de um contato válido do cliente para alinharmos.\nCaso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
+            "Favor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
             #2 Estadia
             "\nFavor verificar e auxiliar.\nEstamos na entrega da NF em assunto aguardando descarregar.\nChegada: \nSaída: ",
             #3 Mudou-se
-            "\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar uma CC-e para o endereço correto e autorizar o custo de reentrega de 50% do valor do CT-e origem.\nAguardamos breve retorno afim de não prejudicar o prazo de entrega do cliente.",
+            "\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.", 
 ]
 
 agendamento = [
@@ -69,7 +69,9 @@ respostasWpp = [
     #3
     "\n\nPreciso de um auxílio com esta NF: ",
     #4
-    "\n\nSegue e-mail referente a NF: "
+    "\n\nSegue e-mail referente a NF: ",
+    #5
+    "\nPor gentileza, teria o PDF desta NF ou o número da mesma para eu verificar melhor?\n"
 ]
 
 diversos = [
@@ -167,7 +169,7 @@ def wppAuxilioNf():
 def wppSegueEmail():
     pyperclip.copy(saudacao)
     pyautogui.hotkey("ctrl","v")
-    pyperclip.copy(respostasWpp[5])
+    pyperclip.copy(respostasWpp[4])
     pyautogui.hotkey("ctrl","v")
 
 def wppMercEmRota():
@@ -238,6 +240,9 @@ def cobrarAgAm():
     pyperclip.copy(agendamento[2])
     pyautogui.hotkey("ctrl", "v")
 
+def pdfOuNumNF():
+    pyperclip.copy(respostasWpp[5])
+    pyautogui.hotkey("ctrl", "v")
 
 comando_digitado = ""
 
@@ -344,6 +349,11 @@ def verificar_comando(e):
             cobrarAgAm()
             comando_digitado = ""
 
+        elif "//p" in comando_digitado:
+            apagar_comando(3)
+            pdfOuNumNF
+            comando_digitado = ""
+
         elif len(comando_digitado) > 10:
             comando_digitado = ""
 
@@ -354,5 +364,4 @@ def verificar_comando(e):
 keyboard.on_press(verificar_comando)
 mostrar_comandos()
 print("Monitorando comandos digitados como //1, //2, etc...")
-keyboard.wait()
-
+keyboard.wait

@@ -249,7 +249,6 @@ def pdfOuNumNF():
     pyperclip.copy(respostasWpp[5])
     pyautogui.hotkey("ctrl", "v")
 
-
 #Funções FIM ***********************************************************
 
 comando_digitado = ""

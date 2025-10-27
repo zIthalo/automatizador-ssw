@@ -7,7 +7,7 @@ import tkinter as tk
 
 def mostrar_comandos():
     comandos = [
-        "Digite //0 para executar a função saudação breve",
+        "Digite //0 para executar a função saudação breve\n",
         "Digite //1 para executar a função de saudação completa no wpp;\n",
         "Digite //2 para executar a função saudação2;\n",
         "Digite //3 para executar a função solicitar auxilio com uma nf;\n",
@@ -20,10 +20,10 @@ def mostrar_comandos():
         "Digite //e para executar a função informar seu e-mail;",
         "Digite //r para executar a função informar que a mercadoria está em rota de entrega hoje;\n",
         "Digite //sg para executar a função segue e-mail enviado;\n",
-        "Digite //ag para executar a função informar agendamento",
-        "Digite //ar para executar a função informar agendamento Risso",
-        "Digite //ca para executar a função cobrar agendamento para amanhã",
-        "Digite //p para executar a função teria o PDF ou n° da NF?"
+        "Digite //ag para executar a função informar agendamento\n",
+        "Digite //ar para executar a função informar agendamento Risso\n",
+        "Digite //ca para executar a função cobrar agendamento para amanhã\n",
+        "Digite //p para executar a função teria o PDF ou n° da NF?\n"
     ]
 
     janela = tk.Tk()
@@ -46,21 +46,19 @@ def mostrar_comandos():
 
 respostas = [
             #0 Endereço não localizado
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
+            "Favor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\n\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n\n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n4-Caso prefira o cliente pode retirar na base sem custos extras.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
             #1 Reentrega    
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
+            "Favor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n\n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n4-Caso prefira o cliente pode retirar na base sem custos extras. \n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
             #2 Estadia
-            "\nFavor verificar e auxiliar.\nEstamos na entrega da NF em assunto aguardando descarregar.\nChegada: \nSaída: ",
+            "\nFavor verificar e auxiliar.\n\nEstamos na entrega da NF em assunto aguardando descarregar.\n\nChegada: \nSaída: ",
             #3 Mudou-se
-            "\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.", 
+            "\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.", 
 ]
 
 agendamento = [
             #0 informar agendamento
             "A mercadoria da NF em assunto está agendada para dia  \nGentileza confirmar ciência.",
-            #1 informar agendamento risso
-            "A mercadoria da NF em assunto está agendada para dia:  \nPoderia me auxiliar alinhando junto a Risso?\n",
-            #2 Verificar retorno agendamento
+            #1 Verificar retorno agendamento
             "\nEsta mercadoria segue conforme agenda amanhã?"
 
 ]
@@ -84,16 +82,30 @@ diversos = [
     #0 e-mail
     "sac.blu@arletetransportes.com.br",
     #1
-    "\nPrecisamos de um breve retorno sobre este caso para finalizarmos esta tratativa.",
+    "\nPrecisamos de um retorno para finalizarmos esta tratativa.",
     #2
     "\nEsta mercadoria está em rota de entrega hoje, deve ser finalizada em horário comercial até as 18h.",
     #3
     "\nTemos retorno sobre este caso?",
     #4
-    "\n\n\n"
+    "\n\n\n",
+    #5
+    "\n\nReentrega em sistema.\n\nGentileza informar nova previsão.",
+    #6
+    "\nReentrega e CC-e em sistema.\n\nGentileza informar nova previsão.",
+    #7
+    "Vamos precisar dos dados de quem irá retirar:\n\nNome Completo: \n\nRG/CPF: \n\nPlaca do veículo: ",
+    #8
+    "\n\n\nGentileza verificar.",
+    #9
+    "\n\n\nGentileza auxiliar com o agendamento de coleta e *informar a data*"
+       
 ]
 
-
+endereco = [
+    #1
+    "Filial - BLUMENAU (BLU / CD) - \n\nRodovia Ingo Henring, 8979 CNPJ: 72.090.442/0009-34\n\nBairro: Margem Esquerda \n\nCep: 89116-755 - Gaspar/SC \n\nFone:(47) 3318-0980\n\nContato: blumenau@arletetransportes.com.br \n\nhttps://www.google.com/maps?q=-26.9167197,-48.9699487"
+]
 
 # Corrigindo a lógica de hora
 hora_atual = datetime.now().hour
@@ -107,6 +119,44 @@ else:
 
 #Funções INICIO***********************************************************
 
+def agendarColeta():
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+
+    pyperclip.copy(diversos[9])
+    pyautogui.hotkey("ctrl","v")
+
+def verificar():
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+
+    pyperclip.copy(diversos[8])
+    pyautogui.hotkey("ctrl","v")
+
+def baseBlu():
+    pyperclip.copy(endereco[0])
+    pyautogui.hotkey("ctrl","v")
+
+def dadosRetira():
+   
+    pyperclip.copy(diversos[7])
+    pyautogui.hotkey("ctrl","v")
+
+def reentragaECCe():
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+
+    pyperclip.copy(diversos[6])
+    pyautogui.hotkey("ctrl", "v")
+
+def reentregaEmS():
+
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+
+    pyperclip.copy(diversos[5])
+    pyautogui.hotkey("ctrl", "v")
+    
 def endNaoLocalizado():
         
     pyperclip.copy(saudacao)
@@ -250,6 +300,12 @@ def pdfOuNumNF():
     pyperclip.copy(respostasWpp[5])
     pyautogui.hotkey("ctrl", "v")
 
+def reentregaECCe():
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+    pyperclip.copy(diversos[4])
+    pyautogui.hotkey("ctrl","v")
+
 #Funções FIM ***********************************************************
 
 comando_digitado = ""
@@ -347,19 +403,44 @@ def verificar_comando(e):
             agendar()
             comando_digitado = ""
 
-        elif "//ar" in comando_digitado:
-            apagar_comando(4)
-            agendarRisso()
-            comando_digitado = ""
-
         elif "//ca" in comando_digitado:
             apagar_comando(4)
             cobrarAgAm()
             comando_digitado = ""
-
+        
         elif "//p" in comando_digitado:
             apagar_comando(3)
-            pdfOuNumNF
+            pdfOuNumNF()
+            comando_digitado = ""
+        
+        elif "//R" in comando_digitado:
+            apagar_comando(3)
+            reentregaEmS()
+            comando_digitado = ""
+        
+        elif "//C" in comando_digitado:
+            apagar_comando(3)
+            reentregaECCe()
+            comando_digitado = ""
+        
+        elif "//b" in comando_digitado:
+            apagar_comando(3)
+            baseBlu()
+            comando_digitado = ""
+        
+        elif "//d" in comando_digitado:
+            apagar_comando(3)
+            dadosRetira()
+            comando_digitado = ""
+
+        elif "//g" in comando_digitado:
+            apagar_comando(3)
+            verificar()
+            comando_digitado = ""
+
+        elif "///" in comando_digitado:
+            apagar_comando(3)
+            agendarColeta()
             comando_digitado = ""
 
         elif len(comando_digitado) > 10:

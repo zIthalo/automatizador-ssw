@@ -88,7 +88,9 @@ respostasWpp = [
     #6
     "Por nada, eu é que agradeço! Se precisar, estou à disposição.\n",
     #7
-    "Muito obrigado!"
+    "Muito obrigado!",
+    #8
+    "\n\nComo posso ajudar você hoje?"
 ]
 
 diversos = [
@@ -162,6 +164,9 @@ def apagar_comando(tamanho: int) -> None:
 # Funções já existentes (refatoradas para usar enviar)
 # ------------------------
 
+def ajudar():
+    enviar(respostasWpp[8])
+
 def dizerObrigado():
     enviar(respostasWpp[7])
 
@@ -208,10 +213,10 @@ def wppVouVerificar():
     enviar(saudacao, respostasWpp[1])
 
 def wppAuxilioNf():
-    enviar(saudacao, respostasWpp[2], respostasWpp[3])
+    enviar(saudacao, respostasWpp[3])
 
 def wppSegueEmail():
-    enviar(saudacao, respostasWpp[4])
+    enviar(saudacao,respostasWpp[2], respostasWpp[4])
 
 def wppMercEmRota():
     enviar(diversos[2])
@@ -249,6 +254,7 @@ def agendamento_colet():
 # Comandos built-in que chamam funções.
 BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
     "//0": saudar,
+    "//a": ajudar,
     "//1": wpp,
     "//2": wppVouVerificar,
     "//3": wppAuxilioNf,
@@ -261,7 +267,7 @@ BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
     "//9": estadia,
     "//e": falarEmail,
     "//r": wppMercEmRota,
-    "//sg": wppSegueEmail,
+    "//se": wppSegueEmail,
     "//ag": agendar,
     "//ar": agendar,         # se desejar diferente, ajuste
     "//ca": cobrarAgAm,

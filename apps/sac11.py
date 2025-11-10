@@ -46,18 +46,20 @@ def mostrar_comandos():
 
 respostas = [
             #0 Endereço não localizado
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\n\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n\n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n4-Caso prefira o cliente pode retirar na base sem custos extras.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
+            "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\n\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n\n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
             #1 Reentrega    
-            "Favor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n\n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n4-Caso prefira o cliente pode retirar na base sem custos extras. \n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
+            "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n\n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",           
             #2 Estadia
-            "\nFavor verificar e auxiliar.\n\nEstamos na entrega da NF em assunto aguardando descarregar.\n\nChegada: \nSaída: ",
+            "@\n\nFavor verificar e auxiliar.\n\nEstamos na entrega da NF em assunto aguardando descarregar.\n\nChegada: \nSaída: ",
             #3 Mudou-se
-            "\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.", 
+            "@\n\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.",
+            #4 Recusa por pendência
+            "@\n\nDurante a tentativa de entrega da NF em questão, o cliente recusou o recebimento alegando que havia uma pendência no documento.\nSolicitamos, por gentileza, a verificação da situação e o devido posicionamento quanto ao procedimento a ser adotado.\n\nInformamos que:\n\nEm caso de reentrega, será aplicada uma taxa adicional correspondente a 50% do valor do CT-e de origem;\n\nEm caso de devolução, será aplicada uma taxa correspondente a 100% do valor do CT-e de origem."
 ]
 
 agendamento = [
             #0 informar agendamento
-            "A mercadoria da NF em assunto está agendada para dia  \nGentileza confirmar ciência.",
+            "\n@\n\nA mercadoria da NF em assunto está agendada para dia  \nGentileza confirmar ciência.",
             #1 Verificar retorno agendamento
             "\nEsta mercadoria segue conforme agenda amanhã?"
 
@@ -82,7 +84,7 @@ diversos = [
     #0 e-mail
     "sac.blu@arletetransportes.com.br",
     #1
-    "\nPrecisamos de um retorno para finalizarmos esta tratativa.",
+    "\nMercadoria entregue segue comprovante.",
     #2
     "\nEsta mercadoria está em rota de entrega hoje, deve ser finalizada em horário comercial até as 18h.",
     #3
@@ -90,15 +92,15 @@ diversos = [
     #4
     "\n\n\n",
     #5
-    "\n\nReentrega em sistema.\n\nGentileza informar nova previsão.",
+    "\n\n@\n\nReentrega em sistema-anexo.\n\nGentileza informar nova previsão.",
     #6
-    "\nReentrega e CC-e em sistema.\n\nGentileza informar nova previsão.",
+    "\n\n@\n\nReentrega e CC-e em sistema-anexo.\n\nGentileza informar nova previsão.",
     #7
-    "Vamos precisar dos dados de quem irá retirar:\n\nNome Completo: \n\nRG/CPF: \n\nPlaca do veículo: ",
-    #8
-    "\n\n\nGentileza verificar.",
-    #9
-    "\n\n\nGentileza auxiliar com o agendamento de coleta e *informar a data*"
+    "Vamos precisar dos dados de quem irá retirar:\n\nNome Completo: \n\nRG ou CPF: \n\nPlaca do veículo: ",
+    #3
+    "\n\n@\n\nGentileza verificar.",
+    #4
+    "\n\n@\n\nGentileza solicitar agendamento de coleta e *informar a data*."
        
 ]
 
@@ -118,6 +120,13 @@ else:
     saudacao = "Olá! Boa noite."
 
 #Funções INICIO***********************************************************
+
+def recusaPorPendencia():
+    pyperclip.copy(saudacao)
+    pyautogui.hotkey("ctrl","v")
+
+    pyperclip.copy(respostas[4])
+    pyautogui.hotkey("ctrl","v")
 
 def agendarColeta():
     pyperclip.copy(saudacao)
@@ -236,12 +245,7 @@ def falarEmail():
     pyperclip.copy(diversos[0])
     pyautogui.hotkey("ctrl","v")
     
-def cobrar():
-    pyperclip.copy(saudacao)
-    pyautogui.hotkey("ctrl", "v")
-
-    pyperclip.copy(diversos[4])
-    pyautogui.hotkey("ctrl", "v")
+def mercadoriaEntregue():
 
     pyperclip.copy(diversos[1])
     pyautogui.hotkey("ctrl", "v")
@@ -276,16 +280,6 @@ def agendar():
     pyperclip.copy(agendamento[0])
     pyautogui.hotkey("ctrl", "v")
 
-def agendarRisso():
-    pyperclip.copy(saudacao)
-    pyautogui.hotkey("ctrl", "v")
-
-    pyperclip.copy(diversos[4])
-    pyautogui.hotkey("ctrl", "v")
-
-    pyperclip.copy(agendamento[1])
-    pyautogui.hotkey("ctrl", "v")
-
 def cobrarAgAm():
     pyperclip.copy(saudacao)
     pyautogui.hotkey("ctrl", "v")
@@ -293,7 +287,7 @@ def cobrarAgAm():
     pyperclip.copy(diversos[4])
     pyautogui.hotkey("ctrl", "v")
 
-    pyperclip.copy(agendamento[2])
+    pyperclip.copy(agendamento[1])
     pyautogui.hotkey("ctrl", "v")
 
 def pdfOuNumNF():
@@ -352,7 +346,7 @@ def verificar_comando(e):
             apagar_comando(3)
             wppAuxilioNf()
             comando_digitado = ""
-        
+       #email*************************************************************************
         elif "//4" in comando_digitado:
             apagar_comando(3)
             reentrega()
@@ -368,9 +362,14 @@ def verificar_comando(e):
             mudouSe()
             comando_digitado = ""
 
+        elif "//q" in comando_digitado:
+            apagar_comando(4)
+            recusaPorPendencia()
+            comando_digitado = ""
+            
         elif "//7" in comando_digitado:
             apagar_comando(3)
-            cobrar()
+            mercadoriaEntregue()
             comando_digitado = ""
 
         elif "//8" in comando_digitado:
@@ -413,12 +412,12 @@ def verificar_comando(e):
             pdfOuNumNF()
             comando_digitado = ""
         
-        elif "//R" in comando_digitado:
+        elif "//*" in comando_digitado:
             apagar_comando(3)
             reentregaEmS()
             comando_digitado = ""
         
-        elif "//C" in comando_digitado:
+        elif "//-" in comando_digitado:
             apagar_comando(3)
             reentregaECCe()
             comando_digitado = ""

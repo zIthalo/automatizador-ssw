@@ -11,15 +11,11 @@ from typing import Callable, Dict, Any
 import pyperclip
 import pyautogui
 import keyboard
-import tkinter as tk
-from tkinter import messagebox
-
-# ================== PATH BASE ==================
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-COMMANDS_FILE = os.path.join(BASE_DIR, "comandos_custom.json")
-LOG_FILE = os.path.join(BASE_DIR, "sac11.log")
 
 # ================== CONFIG ==================
+COMMANDS_FILE = "comandos_custom.json"
+LOG_FILE = "sac11.log"
+
 KEY_BUFFER_MAX = 50
 BACKSPACE_DELAY = 0.01
 PASTE_DELAY = 0.05
@@ -38,12 +34,11 @@ logger.info("Inicializando sac11.py")
 # ================== ESTADO GLOBAL ==================
 command_queue = Queue()
 clipboard_filter_enabled = False
-app_running = True
 # ==================================================
 
 # ================== MENSAGENS ==================
 respostas = [
-    "Cotação:\nValor do frete:\nPrevisão de entrega:\n",
+    "Cotação: \nValor do frete: \nPrevisão de entrega em dias úteis: \n",
 ]
 
 def obter_saudacao() -> str:
@@ -114,11 +109,8 @@ def get_all_commands_sorted():
 
 # ================== WORKER ==================
 def command_worker():
-    while app_running:
-        try:
-            cmd = command_queue.get(timeout=0.5)
-        except:
-            continue
+    while True:
+        cmd = command_queue.get()
         try:
             if cmd in BUILTIN_COMMANDS:
                 BUILTIN_COMMANDS[cmd]()
@@ -138,9 +130,6 @@ class CommandListener:
         self.buffer = ""
 
     def on_press(self, e):
-        if not app_running:
-            return
-
         name = e.name
         if len(name) == 1:
             ch = name
@@ -169,10 +158,11 @@ keyboard.on_press(listener.on_press)
 # ================== CLIPBOARD FILTER ==================
 def clipboard_cleaner():
     last_text = ""
-    while app_running:
+    while True:
         if clipboard_filter_enabled:
             text = pyperclip.paste()
             if text != last_text:
+                # Só filtra se for número com caracteres especiais
                 if re.search(r"\d", text) and not re.search(r"[a-zA-Z]", text):
                     cleaned = re.sub(r"\D+", "", text)
                     if cleaned:
@@ -187,50 +177,21 @@ threading.Thread(target=clipboard_cleaner, daemon=True).start()
 def toggle_clipboard_filter():
     global clipboard_filter_enabled
     clipboard_filter_enabled = not clipboard_filter_enabled
-    status_var.set(
-        "Filtro numérico: ATIVADO" if clipboard_filter_enabled else "Filtro numérico: DESATIVADO"
-    )
-    logger.info("Filtro numérico %s", clipboard_filter_enabled)
+    estado = "ATIVADO" if clipboard_filter_enabled else "DESATIVADO"
+    print(f"[Filtro Numérico] {estado}")
+    logger.info("Filtro numérico %s", estado)
 
 keyboard.add_hotkey("pause", toggle_clipboard_filter)
 # ============================================
 
-# ================== INTERFACE GRÁFICA ==================
-def sair():
-    global app_running
-    if messagebox.askyesno("Sair", "Deseja realmente encerrar o O programa?"):
-        app_running = False
-        keyboard.unhook_all()
-        root.destroy()
-
-root = tk.Tk()
-root.title("Programa – Mensagens Automáticas")
-root.geometry("360x200")
-root.resizable(False, False)
-
-tk.Label(
-    root,
-    text="Programa ativo em segundo plano",
-    font=("Segoe UI", 12, "bold")
-).pack(pady=10)
-
-tk.Label(
-    root,
-    text="• Comandos: //x\n• Pause/Break liga/desliga filtro numérico",
-    justify="left"
-).pack(pady=5)
-
-status_var = tk.StringVar(value="Filtro numérico: DESATIVADO")
-tk.Label(root, textvariable=status_var).pack(pady=5)
-
-tk.Button(
-    root,
-    text="Sair",
-    width=15,
-    command=sair
-).pack(pady=15)
-
 # ================== MAIN ==================
-logger.info("Interface iniciada.")
-root.mainloop()
-logger.info("Aplicação encerrada.")
+def main():
+    print("sac11 ativo.")
+    print("• Comandos automáticos: //x")
+    print("• Pause/Break liga/desliga filtro numérico")
+    logger.info("Aplicação pronta.")
+    keyboard.wait()
+
+if __name__ == "__main__":
+    main()
+# ============================================

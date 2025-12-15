@@ -38,17 +38,17 @@ clipboard_filter_enabled = False
 
 # ================== MENSAGENS ==================
 respostas = [
-    "*Hemilly:*\nCotação:\nValor do frete:\nPrevisão de entrega:\n",
+    "\nCotação: \nValor do frete: \nPrevisão de entrega em dias úteis: \n",
 ]
 
 def obter_saudacao() -> str:
     hora = datetime.now().hour
     if hora < 12:
-        return "*Hemilly:*\nOlá! Bom dia."
+        return "Bom dia."
     elif hora < 18:
-        return "*Hemilly:*\nOlá! Boa tarde."
+        return "Boa tarde."
     else:
-        return "*Hemilly:*\nOlá! Boa noite."
+        return "Boa noite."
 
 saudacao = obter_saudacao()
 # ==============================================

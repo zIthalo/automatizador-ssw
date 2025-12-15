@@ -1,0 +1,92 @@
+2025-12-14 20:26:12,297 [INFO] Inicializando sac11.py
+2025-12-14 20:26:12,297 [INFO] Arquivo de comandos custom não encontrado, criando vazio.
+2025-12-14 20:26:12,299 [INFO] Inicializando aplicação principal.
+2025-12-14 20:26:12,299 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 20:26:12,431 [INFO] Listener iniciado.
+2025-12-14 20:26:12,431 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 20:26:15,605 [INFO] Comando detectado: //1
+2025-12-14 20:26:22,703 [INFO] Comando detectado: //1
+2025-12-14 20:26:26,963 [INFO] Comando detectado: //8
+2025-12-14 20:26:30,824 [INFO] Comando detectado: //7
+2025-12-14 20:26:36,392 [INFO] Comando detectado: //9
+2025-12-14 21:28:01,019 [INFO] Inicializando sac11.py
+2025-12-14 21:28:01,021 [INFO] Comandos custom carregados: 0
+2025-12-14 21:28:01,021 [INFO] Inicializando aplicação principal.
+2025-12-14 21:28:01,021 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:28:01,131 [INFO] Listener iniciado.
+2025-12-14 21:28:01,131 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:28:12,393 [INFO] Comando detectado: //1
+2025-12-14 21:34:54,445 [INFO] Inicializando sac11.py
+2025-12-14 21:34:54,446 [INFO] Comandos custom carregados: 0
+2025-12-14 21:34:54,446 [INFO] Inicializando aplicação principal.
+2025-12-14 21:34:54,446 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:34:54,541 [INFO] Listener iniciado.
+2025-12-14 21:34:54,542 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:34:58,686 [INFO] Comando detectado: //0
+2025-12-14 21:36:05,747 [INFO] Inicializando sac11.py
+2025-12-14 21:36:05,747 [INFO] Comandos custom carregados: 0
+2025-12-14 21:36:05,748 [INFO] Inicializando aplicação principal.
+2025-12-14 21:36:05,748 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:36:05,862 [INFO] Listener iniciado.
+2025-12-14 21:36:05,863 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:36:13,096 [INFO] Inicializando sac11.py
+2025-12-14 21:36:13,096 [INFO] Comandos custom carregados: 0
+2025-12-14 21:36:13,096 [INFO] Inicializando aplicação principal.
+2025-12-14 21:36:13,096 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:36:13,197 [INFO] Listener iniciado.
+2025-12-14 21:36:13,198 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:36:21,601 [INFO] Comando detectado: //0
+2025-12-14 21:37:07,652 [INFO] Inicializando sac11.py
+2025-12-14 21:37:07,652 [INFO] Comandos custom carregados: 0
+2025-12-14 21:37:07,652 [INFO] Inicializando aplicação principal.
+2025-12-14 21:37:07,652 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:37:07,746 [INFO] Listener iniciado.
+2025-12-14 21:37:07,746 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:37:11,660 [INFO] Comando detectado: //0
+2025-12-14 21:37:37,913 [INFO] Comando detectado: //0
+2025-12-14 21:38:39,415 [INFO] Inicializando sac11.py
+2025-12-14 21:38:39,416 [INFO] Comandos custom carregados: 0
+2025-12-14 21:38:39,416 [INFO] Inicializando aplicação principal.
+2025-12-14 21:38:39,416 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:38:39,530 [INFO] Listener iniciado.
+2025-12-14 21:38:39,530 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:38:44,946 [INFO] Comando detectado: //0
+2025-12-14 21:46:41,338 [INFO] Inicializando sac11.py
+2025-12-14 21:46:41,339 [INFO] Comandos custom carregados: 0
+2025-12-14 21:46:41,339 [INFO] Inicializando aplicação principal.
+2025-12-14 21:46:41,339 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:46:41,449 [INFO] Listener iniciado.
+2025-12-14 21:46:41,449 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:46:44,328 [INFO] Comando detectado: //0
+2025-12-14 21:47:53,940 [INFO] Inicializando sac11.py
+2025-12-14 21:47:53,941 [INFO] Comandos custom carregados: 0
+2025-12-14 21:47:53,941 [INFO] Inicializando aplicação principal.
+2025-12-14 21:47:53,941 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 21:47:54,048 [INFO] Listener iniciado.
+2025-12-14 21:47:54,048 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 21:47:55,360 [INFO] Comando detectado: //1
+2025-12-14 21:56:12,414 [INFO] Inicializando sac11.py
+2025-12-14 21:58:43,728 [INFO] Inicializando sac11.py
+2025-12-14 21:58:49,666 [INFO] Clipboard limpo: 120-*5524/\|5654@#$%¨&*()874=+§3232132 -> 120552456548743232132
+2025-12-14 21:59:13,990 [INFO] Clipboard limpo: 120-920-854;; -> 120920854
+2025-12-14 22:00:11,990 [INFO] Clipboard limpo: 120-*5524/\|5654@#$%¨&*()874=+§3232132
+ -> 120552456548743232132
+2025-12-14 22:02:52,093 [INFO] Inicializando sac11.py
+2025-12-14 22:03:06,241 [INFO] Inicializando sac11.py
+2025-12-14 22:03:06,241 [INFO] Comandos custom carregados: 0
+2025-12-14 22:03:06,242 [INFO] Inicializando aplicação principal.
+2025-12-14 22:03:06,242 [INFO] Iniciando listener de teclado em thread.
+2025-12-14 22:03:06,350 [INFO] Listener iniciado.
+2025-12-14 22:03:06,350 [INFO] Aplicação pronta - aguardando teclas.
+2025-12-14 22:08:06,511 [INFO] Inicializando sac11.py
+2025-12-14 22:08:06,610 [INFO] Aplicação pronta.
+2025-12-14 22:08:30,244 [INFO] Inicializando sac11.py
+2025-12-14 22:08:30,349 [INFO] Aplicação pronta.
+2025-12-14 22:08:37,793 [INFO] Filtro numérico ATIVADO
+2025-12-14 22:08:40,598 [INFO] Filtro numérico DESATIVADO
+2025-12-14 22:08:51,260 [INFO] Filtro numérico ATIVADO
+2025-12-14 22:08:57,190 [INFO] Filtro numérico DESATIVADO
+2025-12-14 22:08:57,332 [INFO] Filtro numérico ATIVADO
+2025-12-14 22:11:37,162 [INFO] Inicializando sac11.py
+2025-12-14 22:11:37,285 [INFO] Aplicação pronta.
+2025-12-14 22:11:39,364 [INFO] Filtro numérico ATIVADO

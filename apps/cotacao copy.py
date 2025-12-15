@@ -38,17 +38,17 @@ clipboard_filter_enabled = False
 
 # ================== MENSAGENS ==================
 respostas = [
-    "\nCotação: \nValor do frete: \nPrevisão de entrega em dias úteis: \n",
+    "Cotação: \nValor do frete: \nPrevisão de entrega em dias úteis: \n",
 ]
 
 def obter_saudacao() -> str:
     hora = datetime.now().hour
     if hora < 12:
-        return "Bom dia."
+        return "Bom dia.\n"
     elif hora < 18:
-        return "Boa tarde."
+        return "Boa tarde.\n"
     else:
-        return "Boa noite."
+        return "Boa noite.\n"
 
 saudacao = obter_saudacao()
 # ==============================================
@@ -70,8 +70,12 @@ def apagar_comando(tamanho: int):
 def cotacao():
     enviar(respostas[0])
 
+def saudar():
+    enviar(saudacao)
+
 BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
     "//0": cotacao,
+    "//1": saudar,
 }
 # =============================================
 

@@ -52,7 +52,7 @@ respostas = [
     #3 Mudou-se
     "@\n\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.",
     #4 Recusa por pendência
-    "@\n\nDurante a tentativa de entrega da NF em questão, o cliente recusou o recebimento alegando que havia uma pendência no documento.\nSolicitamos, por gentileza, a verificação da situação e o devido posicionamento quanto ao procedimento a ser adotado.\n\nInformamos que:\n\nEm caso de reentrega, será aplicada uma taxa adicional correspondente a 50% do valor do CT-e de origem;\n\nEm caso de devolução, será aplicada uma taxa correspondente a 100% do valor do CT-e de origem."
+    "\n\n@\n\nDurante a tentativa de entrega da NF em questão, o cliente recusou o recebimento alegando que havia uma pendência no documento.\nSolicitamos, por gentileza, a verificação da situação e o devido posicionamento quanto ao procedimento a ser adotado.\n\nInformamos que:\n\nEm caso de reentrega, será aplicada uma taxa adicional correspondente a 50% do valor do CT-e de origem;\n\nEm caso de devolução, será aplicada uma taxa correspondente a 100% do valor do CT-e de origem."
 ]
 
 agendamento = [
@@ -72,7 +72,7 @@ respostasWpp = [
     #3
     "\n\nTudo bem?\n\nPreciso de um auxílio com esta NF: ",
     #4
-    "\n\nSegue e-mail referente a NF: ",
+    "\n\nTudo bem?\n\nSegue e-mail referente a NF: \n\nPoderia nos auxiliar?",
     #5
     "\nPor gentileza, teria o PDF desta NF ou o número da mesma para eu verificar melhor?\n",
     #6
@@ -80,7 +80,13 @@ respostasWpp = [
     #7
     "Muito obrigado!",
     #8
-    "\n\nTudo bem por aqui e você? Como posso te ajudar hoje?"
+    "\n\nTudo bem por aqui e você?\n\nComo posso te ajudar hoje?",
+    #9
+    "A mercadoria está com previsão de entrega para dia ",
+    #10
+    "Vou verificar e já te retorno.",
+    #11
+    "Olá!\n\nEstamos conversando sobre a NF: \n\nVou verificar e já te retorno.",
 ]
 
 diversos = [
@@ -95,9 +101,9 @@ diversos = [
     #4
     "\n\n\n",
     #5
-    "\n\n@\n\nReentrega em sistema-anexo.\n\nGentileza informar nova previsão.",
+    "\n\n@\n\nGentileza emitir CT-e de reentrega para a NF em assunto e CT-e: ",
     #6
-    "\n\n@\n\nReentrega e CC-e em sistema-anexo.\n\nGentileza informar nova previsão.",
+    "\n\n@\n\nFavor emitir CT-e de reentrega para a NF em assunto e CT-e: \n\n@\n\nCC-e em sistema-anexo.",
     #7
     "Vamos precisar dos dados da pessoa que irá retirar:\n\nNome Completo: \n\nRG ou CPF: \n\nPlaca do veículo: ",
     #8
@@ -107,12 +113,14 @@ diversos = [
     #10
     "Remetente acionado. Aguardo retorno.",
     #11
-    "Em tratativas."
+    "Em tratativas.",
+    "\n\n@\n\nFavor verificar e autorizar custos abaxo:\n\ncusto: R$ \n\n-Impostos: R$ \n\n -Total: R$ \n\nAguardo retorno para darmos prosseguimento.\n",
 ]
 
 endereco = [
     #1
-    "Arlete Transportes Filial (BLU)  - \n\nRodovia Ingo Henring, 8979 CNPJ: 72.090.442/0009-34\n\nBairro: Margem Esquerda \n\nCep: 89116-755 - Gaspar/SC \n\nFone:(47) 3318-0980\n\nContato: blumenau@arletetransportes.com.br \n\nhttps://www.google.com/maps?q=-26.9167197,-48.9699487"
+    "Arlete Transportes Filial (BLU)  - \n\nRodovia Ingo Henring, 8979 CNPJ: 72.090.442/0009-34\n\nBairro: Margem Esquerda \n\nCep: 89116-755 - Gaspar/SC \n\nFone:(47) 3318-0980\n\nContato: blumenau@arletetransportes.com.br \n\nhttps://www.google.com/maps?q=-26.9167197,-48.9699487",
+    
 ]
 def obter_saudacao() -> str:
     hora = datetime.now().hour
@@ -140,13 +148,25 @@ def apagar_comando(tamanho: int):
 # ================================================
 
 # ================== FUNÇÕES ==================
+def estamosConversandoSobreaNf():
+    enviar(respostasWpp[11])
+
+def repassarCustos():
+    enviar(saudacao, diversos[12])
+
+def jaRetorno():
+    enviar(respostasWpp[10])
+
+def previsaoDeEntrega():
+    enviar(saudacao, diversos[9])
+
 def acionadoRemetente():
     enviar(diversos[10])
 
 def emTratativas():
     enviar(diversos[11])
 
-def tudoBem():
+def tudoBemComoPossoTeAjudar():
     enviar(saudacao, respostasWpp[8])
 
 def dizerObrigado():
@@ -198,7 +218,7 @@ def wppAuxilioNf():
     enviar(saudacao, respostasWpp[3])
 
 def wppSegueEmail():
-    enviar(saudacao,respostasWpp[2], respostasWpp[4])
+    enviar(saudacao, respostasWpp[4])
 
 def wppMercEmRota():
     enviar(diversos[2])
@@ -231,34 +251,37 @@ def agendamento_colet():
     enviar(saudacao, "Agendamento confirmado.")
 
 BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
-    "//i": acionadoRemetente,
-    "//o": emTratativas,
     "//0": saudar,
-    "//a": tudoBem,
     "//1": wpp,
     "//2": wppVouVerificar,
     "//3": wppAuxilioNf,
     "//4": reentrega,
     "//5": endNaoLocalizado,
     "//6": mudouSe,
-    "//q": recusaPorPendencia,
-    "//7": mercadoriaEntregue,
+    "//7": recusaPorPendencia,
     "//8": cobrar2,
     "//9": estadia,
-    "//e": falarEmail,
-    "//r": wppMercEmRota,
-    "//se": wppSegueEmail,
-    "//ag": agendar,
-    "//ar": agendar,         # se desejar diferente, ajuste
+    "///": agendarColeta,
+    "**0": tudoBemComoPossoTeAjudar,
+    "**1": wppSegueEmail,
+    "**2": wppMercEmRota,
+    "**3": mercadoriaEntregue,
+    "**4": previsaoDeEntrega,
+    "**5": pdfOuNumNF,
+    "**6": falarEmail,
+    "**7": baseBlu,
+    "**8": dadosRetira,
+    "**9": agradecimento,
+    "***": agendar,
+    "--0": jaRetorno,
+    "--1": repassarCustos,
+    "--2": estamosConversandoSobreaNf,
+    "--3": acionadoRemetente,
+    "--4": emTratativas,
+    "---": verificar,
     "//ca": cobrarAgAm,
-    "//p": pdfOuNumNF,
     "//*": reentregaEmS,
     "//-": reentragaECCe,
-    "//b": baseBlu,
-    "//d": dadosRetira,
-    "//g": verificar,
-    "///": agendarColeta,
-    "//+": agradecimento,
     "//.": dizerObrigado,
 }
 # =============================================

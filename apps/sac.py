@@ -42,79 +42,55 @@ app_running = True
 # ==================================================
 
 # ================== MENSAGENS ==================
-respostas = [
-    #0 Endereço não localizado
-    "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\n\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n\n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
-    #1 Reentrega
-    "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n\n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
-    #2 Estadia
-    "@\n\nFavor verificar e auxiliar.\n\nEstamos na entrega da NF em assunto aguardando descarregar.\n\nChegada: \nSaída: ",
-    #3 Mudou-se
-    "@\n\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.",
-    #4 Recusa por pendência
-    "\n\n@\n\nDurante a tentativa de entrega da NF em questão, o cliente recusou o recebimento alegando que havia uma pendência no documento.\nSolicitamos, por gentileza, a verificação da situação e o devido posicionamento quanto ao procedimento a ser adotado.\n\nInformamos que:\n\nEm caso de reentrega, será aplicada uma taxa adicional correspondente a 50% do valor do CT-e de origem;\n\nEm caso de devolução, será aplicada uma taxa correspondente a 100% do valor do CT-e de origem."
-]
 
-agendamento = [
-    #0 informar agendamento
-    "@\n\nA mercadoria da NF em assunto está agendada para dia  \nGentileza confirmar ciência.",
-    #1 Verificar retorno agendamento
-    "\nEsta mercadoria segue conforme agenda amanhã?"
-]
 
-respostasWpp = [
+
+mensagens = [
     #0
-    "\n\nTudo bem por aqui. E você?\n\nVou verificar agora, só um momento.",
-    #1
-    "\n\nVou verificar agora, só um momento.",
-    #2
     "\n\nTudo bem?\n\nComo posso ajudar você?",
+    #1
+    "\n\nTudo bem por aqui. E você?\n\nVerificando, só um momento.",
+    #2
+    "\n\nVerificando, só um momento.",
     #3
     "\n\nTudo bem?\n\nPreciso de um auxílio com esta NF: ",
     #4
     "\n\nTudo bem?\n\nSegue e-mail referente a NF: \n\nPoderia nos auxiliar?",
     #5
-    "\nPor gentileza, teria o PDF desta NF ou o número da mesma para eu verificar melhor?\n",
+    "\n\nTudo bem por aqui! E você?\n\nComo posso ajudar você hoje?",
     #6
-    "Por nada, eu é que agradeço! Se precisar, estou à disposição.\n",
+    "Por gentileza, teria o PDF desta NF? \n\nOu teria o número da nota fiscal para eu verificar melhor?",
     #7
-    "Muito obrigado!",
+    "Por nada, eu é quem agradeço! \n\nSe precisar, pode chamar estou à disposição.",
     #8
-    "\n\nTudo bem por aqui e você?\n\nComo posso te ajudar hoje?",
+    "Muito obrigado!",
     #9
     "A mercadoria está com previsão de entrega para dia ",
     #10
     "Vou verificar e já te retorno.",
     #11
-    "Olá!\n\nEstamos conversando sobre a NF: \n\nVou verificar e já te retorno.",
-]
-
-diversos = [
-    #0 e-mail
     "sac.blu@arletetransportes.com.br",
-    #1
-    "\nMercadoria entregue segue comprovante.",
-    #2
-    "\nEsta mercadoria está em rota de entrega hoje, deve ser finalizada em horário comercial.",
-    #3
-    "\nTemos retorno sobre este caso?",
-    #4
-    "\n\n\n",
-    #5
-    "\n\n@\n\nGentileza emitir CT-e de reentrega para a NF em assunto e CT-e: ",
-    #6
-    "\n\n@\n\nFavor emitir CT-e de reentrega para a NF em assunto e CT-e: \n\n@\n\nCC-e em sistema-anexo.",
-    #7
-    "Vamos precisar dos dados da pessoa que irá retirar:\n\nNome Completo: \n\nRG ou CPF: \n\nPlaca do veículo: ",
-    #8
-    "\n\n@\n\nGentileza verificar.",
-    #9
-    "\n\n@\n\nGentileza solicitar agendamento de coleta e *informar a data*.",
-    #10
-    "Remetente acionado. Aguardo retorno.",
-    #11
-    "Em tratativas.",
-    "\n\n@\n\nFavor verificar e autorizar custos abaxo:\n\ncusto: R$ \n\n-Impostos: R$ \n\n -Total: R$ \n\nAguardo retorno para darmos prosseguimento.\n",
+    #12 
+    "Mercadoria entregue segue comprovante.",
+    #13
+    "Esta mercadoria está em rota de entrega hoje, deve ser finalizada em horário comercial. \n\nSerá entregue no endereço acima.",
+    #14
+    "Vamos precisar dos dados da pessoa que irá retirar:\n\nNome Completo: \n\nRG ou CPF: \n\nPlaca do veículo: ",   
+    #15
+    "Cliente acionado, aguardando retorno.",
+    #16
+    "Verificando / Cobrando retorno.",
+    #17
+    "Base acionada, aguardando retorno.",
+    #18
+    "Olá!\n\nEstamos conversando sobre a NF: \n\nVou verificar e já te retorno.",
+    #19
+    "\n\nReentrega em sistema,\n\nGetileza informar a nova previsão",
+    #20
+    "\n\nReentrega e CC-e em sistema.\n\nGetileza informar a nova previsão.",
+    #21
+    "\n\n@\n\nGentileza verificar."
+  
 ]
 
 endereco = [
@@ -148,141 +124,80 @@ def apagar_comando(tamanho: int):
 # ================================================
 
 # ================== FUNÇÕES ==================
-def estamosConversandoSobreaNf():
-    enviar(respostasWpp[11])
 
-def repassarCustos():
-    enviar(saudacao, diversos[12])
+def wpp0():
+    enviar(saudacao, mensagens[0])
+def wpp1():
+    enviar(saudacao, mensagens[1])
+def wpp2():
+    enviar(saudacao, mensagens[2])
+def wpp3():
+    enviar(saudacao, mensagens[3])
+def wpp4():
+    enviar(saudacao, mensagens[4])
+def wpp5():
+    enviar(saudacao, mensagens[5])
+def wpp6():
+    enviar(saudacao, mensagens[6])
+def wpp7():
+    enviar(saudacao, mensagens[7])
+def wpp8():
+    enviar(saudacao, mensagens[8])
+def wpp9():
+    enviar(saudacao, mensagens[9])
+def wpp10():
+    enviar(saudacao, mensagens[10])
+def wpp11():
+    enviar(saudacao, mensagens[11])
+def wpp12():
+    enviar(saudacao, mensagens[12])
+def wpp13():
+    enviar(saudacao, mensagens[13])
+def wpp14():
+    enviar(saudacao, mensagens[14])
+def wpp15():
+    enviar(saudacao, mensagens[15])
+def wpp16():
+    enviar(saudacao, mensagens[16])
+def wpp17():
+    enviar(saudacao, mensagens[17])
+def wpp18():
+    enviar(saudacao, mensagens[18])
+def wpp19():
+    enviar(saudacao, mensagens[19])
+def wpp20():
+    enviar(saudacao, mensagens[20])
+def wpp21():
+    enviar(saudacao, mensagens[21])
+def wpp22():
+    enviar(saudacao, endereco[0])
 
-def jaRetorno():
-    enviar(respostasWpp[10])
 
-def previsaoDeEntrega():
-    enviar(saudacao, diversos[9])
-
-def acionadoRemetente():
-    enviar(diversos[10])
-
-def emTratativas():
-    enviar(diversos[11])
-
-def tudoBemComoPossoTeAjudar():
-    enviar(saudacao, respostasWpp[8])
-
-def dizerObrigado():
-    enviar(respostasWpp[7])
-
-def agradecimento():
-    enviar(respostasWpp[6])
-
-def recusaPorPendencia():
-    enviar(saudacao, respostas[4])
-
-def agendarColeta():
-    enviar(saudacao, diversos[9])
-
-def verificar():
-    enviar(saudacao, diversos[8])
-
-def baseBlu():
-    enviar(endereco[0])
-
-def dadosRetira():
-    enviar(diversos[7])
-
-def reentragaECCe():
-    enviar(saudacao, diversos[6])
-
-def reentregaEmS():
-    enviar(saudacao, diversos[5])
-
-def endNaoLocalizado():
-    enviar(saudacao, diversos[4], respostas[0])
-
-def reentrega():
-    enviar(saudacao, diversos[4], respostas[1])
-
-def estadia():
-    enviar(saudacao, diversos[4], respostas[2])
-
-def saudar():
-    enviar(saudacao, respostasWpp[2])
-
-def wpp():
-    enviar(saudacao, respostasWpp[0])
-
-def wppVouVerificar():
-    enviar(saudacao, respostasWpp[1])
-
-def wppAuxilioNf():
-    enviar(saudacao, respostasWpp[3])
-
-def wppSegueEmail():
-    enviar(saudacao, respostasWpp[4])
-
-def wppMercEmRota():
-    enviar(diversos[2])
-
-def falarEmail():
-    enviar(diversos[0])
-
-def mercadoriaEntregue():
-    enviar(diversos[1])
-
-def cobrar2():
-    enviar(saudacao, diversos[4], diversos[3])
-
-def mudouSe():
-    enviar(saudacao, diversos[4], respostas[3])
-
-def agendar():
-    enviar(saudacao, diversos[4], agendamento[0])
-
-def cobrarAgAm():
-    enviar(saudacao, diversos[4], agendamento[1])
-
-def pdfOuNumNF():
-    enviar(respostasWpp[5])
-
-def reentregaECCe_alt():
-    enviar(saudacao, diversos[4])
-
-def agendamento_colet():
-    enviar(saudacao, "Agendamento confirmado.")
 
 BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
-    "//0": saudar,
-    "//1": wpp,
-    "//2": wppVouVerificar,
-    "//3": wppAuxilioNf,
-    "//4": reentrega,
-    "//5": endNaoLocalizado,
-    "//6": mudouSe,
-    "//7": recusaPorPendencia,
-    "//8": cobrar2,
-    "//9": estadia,
-    "///": agendarColeta,
-    "**0": tudoBemComoPossoTeAjudar,
-    "**1": wppSegueEmail,
-    "**2": wppMercEmRota,
-    "**3": mercadoriaEntregue,
-    "**4": previsaoDeEntrega,
-    "**5": pdfOuNumNF,
-    "**6": falarEmail,
-    "**7": baseBlu,
-    "**8": dadosRetira,
-    "**9": agradecimento,
-    "***": agendar,
-    "--0": jaRetorno,
-    "--1": repassarCustos,
-    "--2": estamosConversandoSobreaNf,
-    "--3": acionadoRemetente,
-    "--4": emTratativas,
-    "---": verificar,
-    "//ca": cobrarAgAm,
-    "//*": reentregaEmS,
-    "//-": reentragaECCe,
-    "//.": dizerObrigado,
+    "//0": wpp0,
+    "//1": wpp1,
+    "//2": wpp2,
+    "//3": wpp3,
+    "//4": wpp4,
+    "//5": wpp5,
+    "//6": wpp6,
+    "//+": wpp7,
+    "//.": wpp8,
+    "**.": wpp9,
+    "**0": wpp10,
+    "**1": wpp11,
+    "**2": wpp12,
+    "**3": wpp13,
+    "**4": wpp14,
+    "**5": wpp15,
+    "**6": wpp16,
+    "**7": wpp17,
+    "**8": wpp18,
+    "**9": wpp19,
+    "--0": wpp20,
+    "--1": wpp21,
+    "--2": wpp22,
 }
 # =============================================
 
@@ -436,3 +351,25 @@ tk.Button(
 logger.info("Interface iniciada.")
 root.mainloop()
 logger.info("Aplicação encerrada.")
+
+#CÓDIGOS SEM USO OU PARA REUTILIZAÇÃO:
+
+#respostas = [
+    #0 Endereço não localizado
+    # "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o endereço não foi localizado.\n\nGentileza confirmar o endereço e caso o mesmo estiver divergente, favor: \n\n1- Autorizar o custo de reentrega de 50% do valor do CT-e origem; \n2-Nos encaminhar uma CC-e para endereço correto;  \n3-Informar um contato válido do cliente para alinhar nova tentativa de entrega.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
+    #1 Reentrega
+    # "@\n\nFavor verificar.\n\nFomos na entrega da NF em assunto e o destinatário estava ausente.\nPara seguir com uma nova tentativa de entrega, precisaremos do seguinte: \n\n1- Autorização para custo de reentrega (50% do valor do CT-e origem) \n2- Um contato válido do cliente para alinharmos.\n3- Caso o endereço esteja divergente favor nos encaminhar uma CC-e para o local correto também.\n\nAguardamos um breve retorno a fim de evitar impactos no prazo de entrega previsto para o cliente.\n",
+    #2 Estadia
+    # "@\n\nFavor verificar e auxiliar.\n\nEstamos na entrega da NF em assunto aguardando descarregar.\n\nChegada: \nSaída: ",
+    #3 Mudou-se
+    # "@\n\nFomos na entrega da NF em assunto e nos informaram que o cliente mudou-se.\nGentileza verificar e nos encaminhar: \n\n1-Uma CC-e para o endereço correto; \n2-Autorizar o custo de reentrega de 50% do valor do CT-e origem. \n3-Caso o endereço seja em outro estado, será cobrado um novo frete.\n\nAguardamos breve retorno a fim de não prejudicar o prazo de entrega do cliente.",
+    #4 Recusa por pendência
+    #"\n\n@\n\nDurante a tentativa de entrega da NF em questão, o cliente recusou o recebimento alegando que havia uma pendência no documento.\nSolicitamos, por gentileza, a verificação da situação e o devido posicionamento quanto ao procedimento a ser adotado.\n\nInformamos que:\n\nEm caso de reentrega, será aplicada uma taxa adicional correspondente a 50% do valor do CT-e de origem;\n\nEm caso de devolução, será aplicada uma taxa correspondente a 100% do valor do CT-e de origem."
+#]
+
+# agendamento = [
+#     #0 informar agendamento
+#     "@\n\nA mercadoria da NF em assunto está agendada para dia  \nGentileza confirmar ciência.",
+#     #1 Verificar retorno agendamento
+#     "\nEsta mercadoria segue conforme agenda amanhã?"
+# ]

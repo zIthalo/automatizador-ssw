@@ -85,9 +85,9 @@ mensagens = [
     #18
     "Olá!\n\nEstamos conversando sobre a NF: \n\nVou verificar e já te retorno.",
     #19
-    "\n\nReentrega em sistema,\n\nGetileza informar a nova previsão",
+    "\n\nReentrega em sistema,\n\nGentileza informar a nova previsão",
     #20
-    "\n\nReentrega e CC-e em sistema.\n\nGetileza informar a nova previsão.",
+    "\n\nReentrega e CC-e em sistema.\n\nGentileza informar a nova previsão.",
     #21
     "\n\n@\n\nGentileza verificar."
   
@@ -98,6 +98,9 @@ endereco = [
     "Arlete Transportes Filial (BLU)  - \n\nRodovia Ingo Henring, 8979 CNPJ: 72.090.442/0009-34\n\nBairro: Margem Esquerda \n\nCep: 89116-755 - Gaspar/SC \n\nFone:(47) 3318-0980\n\nContato: blumenau@arletetransportes.com.br \n\nhttps://www.google.com/maps?q=-26.9167197,-48.9699487",
     
 ]
+
+# ================== SAUDAÇÃO DINÂMICA ==================
+
 def obter_saudacao() -> str:
     hora = datetime.now().hour
     if hora < 12:
@@ -106,8 +109,6 @@ def obter_saudacao() -> str:
         return "Boa tarde."
     else:
         return "Boa noite."
-
-saudacao = obter_saudacao()
 # ==============================================
 
 # ================== UTILITÁRIOS ==================
@@ -126,78 +127,78 @@ def apagar_comando(tamanho: int):
 # ================== FUNÇÕES ==================
 
 def wpp0():
-    enviar(saudacao, mensagens[0])
+    enviar(obter_saudacao(), mensagens[0])
 def wpp1():
-    enviar(saudacao, mensagens[1])
+    enviar(obter_saudacao(), mensagens[1])
 def wpp2():
-    enviar(saudacao, mensagens[2])
+    enviar(obter_saudacao(), mensagens[2])
 def wpp3():
-    enviar(saudacao, mensagens[3])
+    enviar(obter_saudacao(), mensagens[3])
 def wpp4():
-    enviar(saudacao, mensagens[4])
+    enviar(obter_saudacao(), mensagens[4])
 def wpp5():
-    enviar(saudacao, mensagens[5])
+    enviar(obter_saudacao(), mensagens[5])
 def wpp6():
-    enviar(saudacao, mensagens[6])
+    enviar(obter_saudacao(), mensagens[6])
 def wpp7():
-    enviar(saudacao, mensagens[7])
+    enviar(obter_saudacao(), mensagens[7])
 def wpp8():
-    enviar(saudacao, mensagens[8])
+    enviar(obter_saudacao(), mensagens[8])
 def wpp9():
-    enviar(saudacao, mensagens[9])
+    enviar(obter_saudacao(), mensagens[9])
 def wpp10():
-    enviar(saudacao, mensagens[10])
+    enviar(mensagens[10])
 def wpp11():
-    enviar(saudacao, mensagens[11])
+    enviar(mensagens[11])
 def wpp12():
-    enviar(saudacao, mensagens[12])
+    enviar(mensagens[12])
 def wpp13():
-    enviar(saudacao, mensagens[13])
+    enviar(mensagens[13])
 def wpp14():
-    enviar(saudacao, mensagens[14])
+    enviar(mensagens[14])
 def wpp15():
-    enviar(saudacao, mensagens[15])
+    enviar(mensagens[15])
 def wpp16():
-    enviar(saudacao, mensagens[16])
+    enviar(mensagens[16])
 def wpp17():
-    enviar(saudacao, mensagens[17])
+    enviar(mensagens[17])
 def wpp18():
-    enviar(saudacao, mensagens[18])
+    enviar(mensagens[18])
 def wpp19():
-    enviar(saudacao, mensagens[19])
+    enviar(obter_saudacao(), mensagens[19])
 def wpp20():
-    enviar(saudacao, mensagens[20])
+    enviar(obter_saudacao(), mensagens[20])
 def wpp21():
-    enviar(saudacao, mensagens[21])
+    enviar(obter_saudacao(), mensagens[21])
 def wpp22():
-    enviar(saudacao, endereco[0])
+    enviar(endereco[0])
 
 
 
 BUILTIN_COMMANDS: Dict[str, Callable[[], None]] = {
-    "//0": wpp0,
-    "//1": wpp1,
-    "//2": wpp2,
-    "//3": wpp3,
-    "//4": wpp4,
-    "//5": wpp5,
-    "//6": wpp6,
-    "//+": wpp7,
-    "//.": wpp8,
-    "**.": wpp9,
-    "**0": wpp10,
-    "**1": wpp11,
-    "**2": wpp12,
-    "**3": wpp13,
-    "**4": wpp14,
-    "**5": wpp15,
-    "**6": wpp16,
-    "**7": wpp17,
-    "**8": wpp18,
-    "**9": wpp19,
-    "--0": wpp20,
-    "--1": wpp21,
-    "--2": wpp22,
+    "//0": wpp0, #tudo bem? como posso ajudar você?
+    "//1": wpp1, #tudo bem por aqui. E você? Verificando,
+    "//2": wpp2, #verificando
+    "//3": wpp3, #auxílio com NF.
+    "//4": wpp4, # segue e-mail referente
+    "//5": wpp5, # Como posso ajudar você hoje?
+    "//6": wpp6, # teria o PDF desta NF?
+    "//+": wpp7, # por nada.
+    "//.": wpp8, # muito obrigado!
+    "**.": wpp9, # previsão de entrega
+    "**0": wpp10, # já te retorno.
+    "**1": wpp11, # sac.blu
+    "**2": wpp12, # segue comprovante.
+    "**3": wpp13, # rota de entrega hoje
+    "**5": wpp15, # cliente acionado.
+    "**6": wpp16, # verificando.
+    "**7": wpp17, # base acionada
+    "--1": wpp19, # reentrega
+    "--2": wpp20, # reentrega e CC-e
+    "--3": wpp21, # gentileza verificar.
+    "//b": wpp22, # endereço base blu
+    "//d": wpp14, # dados da pessoa que irá retirar.
+    "--4": wpp18, # estamos conversando sobre a NF: 
 }
 # =============================================
 
@@ -217,7 +218,7 @@ def execute_custom_command(cmd: str):
     if not item:
         return
     if item.get("include_saudacao", True):
-        enviar(saudacao, item["mensagem"])
+        enviar(obter_saudacao(), item["mensagem"])
     else:
         enviar(item["mensagem"])
 # ====================================================

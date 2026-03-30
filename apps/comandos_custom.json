@@ -1,1 +1,18 @@
-{}
+{
+  "//1": {
+    "mensagem": "OlÃƒÂ¡\\n\\nTudo bem?",
+    "include_saudacao": true
+  },
+  "//z": {
+    "mensagem": "ZÃ© tabaco\\n\\nÃ© o nome dele",
+    "include_saudacao": true
+  },
+  "apresentar": {
+    "mensagem": "Olá, me chamo ithalo willian\\n\\nComo é o seu nome?",
+    "include_saudacao": false
+  },
+  "teste": {
+    "mensagem": "Olá\\n\\nEu também quero ^avô avó tião",
+    "include_saudacao": false
+  }
+}
